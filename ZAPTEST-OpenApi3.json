@@ -1,0 +1,824 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ZAPTEST",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://data-api.iot.test.its-siemens.com/v1/api",
+      "variables": {}
+    },
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/subscription/{consumerId}": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Subscribe The Topic-Historical",
+        "operationId": "SubscribeTheTopic-Historical",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeTheTopic-HistoricalRequest"
+              },
+              "example": {
+                "category": "TRAFFIC",
+                "filters": [
+                  {
+                    "type": "OBJECT_TYPE",
+                    "value": "IntersectionStatus"
+                  },
+                  {
+                    "type": "LOCODE",
+                    "value": "DE-BY-NUL"
+                  },
+                  {
+                    "type": "FROM_TIME",
+                    "value": "2019-10-13T01:25:47.362Z"
+                  },
+                  {
+                    "type": "TO_TIME",
+                    "value": "2020-07-13T01:25:47.362Z"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get All Subscriptions",
+        "operationId": "GetAllSubscriptions",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "description": "sGuard",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/data/{consumerId}/{category}/{key}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type-Historical",
+        "operationId": "Getrecordsasperthecategoryanddatatype-Historical",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "TRAFFIC"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "284025D5500000TB20T8422502452002T822T0TD20245000D225002D0T522522"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/subscription/{consumerId}/{id}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get One Subscription Data",
+        "operationId": "GetOneSubscriptionData",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 439
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "delete": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Delete Subscription By ID",
+        "operationId": "DeleteSubscriptionByID",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 440
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get metadata records",
+        "operationId": "Getmetadatarecords",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "GetAll_TMS_Records",
+        "operationId": "GetAll_TMS_Records",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms/{locode}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_TMS_ByLocode",
+        "operationId": "Get_TMS_ByLocode",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IntersectionStatus"
+            }
+          },
+          {
+            "name": "locode",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "DE-BY-NUL"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms/{locode}/objectType": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_Objects_ByLocode",
+        "operationId": "Get_Objects_ByLocode",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IntersectionStatus"
+            }
+          },
+          {
+            "name": "locode",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "DE-BY-NUL"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms/{locode}/objectType/{object}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode",
+        "operationId": "Get_SpecificObect_ByLocode",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "locode",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "DE-BY-NUL"
+            }
+          },
+          {
+            "name": "object",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IntersectionStatus"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms/{locode}/objectType/{object}/id": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ByIds",
+        "operationId": "Get_SpecificObect_ByLocode_ByIds",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "locode",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "DE-BY-NUL"
+            }
+          },
+          {
+            "name": "object",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IntersectionStatus"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/{consumerId}/tms/{locode}/objectType/{object}/id/{id}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ById",
+        "operationId": "Get_SpecificObect_ByLocode_ById",
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "FlowAI20"
+            }
+          },
+          {
+            "name": "locode",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "DE-BY-NUL"
+            }
+          },
+          {
+            "name": "object",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "IntersectionStatus"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "X29"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJyYU1DNklBemtEVmFVbWl2RXBWV2V6V0dYc1lIaTMza0tUY1VKbnFqeTVrIn0.eyJqdGkiOiIwYjQ5NjA2Zi1iNTkyLTQ5YjgtODVkYy0yYmQ3ZDA1NDFkYTkiLCJleHAiOjE1OTU3NTkxODMsIm5iZiI6MCwiaWF0IjoxNTk0ODk1MTgzLCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QudGVzdC5pdHMtc2llbWVucy5jb20vYXV0aC9yZWFsbXMvaXRzIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBhMmZhZTVhLWY0MjgtNGFiNy04YmM0LTIwZDExNzlkNjQ3NiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImN1cmwiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJjMDU2OGY1MS04MjY1LTQ0NTktOGM0Ny03ZjZmZGY5ZmQ2NWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vZGF0YS1hcGkuaW90LnRlc3QuaXRzLXNpZW1lbnMuY29tLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkYXRhLWFwaS1hZG1pbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImF0dHJfb2JqIjoiKiIsImF0dHJfbG9jb2RlIjoiKiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGRiLXVzZXIifQ.vsaqpZGn64Y8-RhWx1PGb_NbozeavKMe8f_OsowJ7K5ymvbsEMfsLWp1fqmUeUA-z0wzQRR9FHFFcbwYp6ZDLoQWZIz1eyb-sAv-3YcBq8PqKHt6KbbQxxa13DCuPeqHw6zR5hqzxW0YYy8s3KwewJjtg8On5yFYFT_2XY-EhLdOKgQwiJ0eZP3hBg_V_P0L-KgOJVixb_KFUZhoF8l5eS3h03wXH-ptqfUFehcK1WuA5SuOdFIFUCgu98skY7wzjvKaSEhlmPYtEdFYVN_j8iiQQlh9Mq-uamkVzHzTbajZlME-5VuVANA_Z9X2QsdP0YjOxmwV-7zSlaPw66_-7g"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubscribeTheTopic-HistoricalRequest": {
+        "title": "SubscribeTheTopic-HistoricalRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "IntersectionStatus"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-BY-NUL"
+            },
+            {
+              "type": "FROM_TIME",
+              "value": "2019-10-13T01:25:47.362Z"
+            },
+            {
+              "type": "TO_TIME",
+              "value": "2020-07-13T01:25:47.362Z"
+            }
+          ]
+        }
+      },
+      "Filter": {
+        "title": "Filter",
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "OBJECT_TYPE",
+          "value": "IntersectionStatus"
+        }
+      },
+      "SubscribeTheTopic-onlineRequest": {
+        "title": "SubscribeTheTopic-onlineRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "IntersectionStatus"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-BY-NUL"
+            },
+            {
+              "type": "FROM_TIME",
+              "value": "2019-10-13T01:25:47.362Z"
+            },
+            {
+              "type": "TO_TIME",
+              "value": "2020-07-13T01:25:47.362Z"
+            }
+          ]
+        }
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://example.com/auth",
+            "scopes": {}
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

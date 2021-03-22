@@ -1,0 +1,507 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "DATAAPIZAPTEST",
+    "contact": {}
+  },
+  "host": "data-api.iot.dev.its-siemens.com",
+  "basePath": "/v1/api",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/subscription/FlowAI20": {
+      "post": {
+        "summary": "Subscribe The Topic-Historical",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "SubscribeTheTopic-Historical",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubscribeTheTopic-HistoricalRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get All Subscriptions",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GetAllSubscriptions",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/data/{consumerId}/{category}/{key}": {
+      "get": {
+        "summary": "Get records as per the category and data type-Historical",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Getrecordsasperthecategoryanddatatype-Historical",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subscription/FlowAI30": {
+      "post": {
+        "summary": "Subscribe The Topic -online",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "SubscribeTheTopic-online",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubscribeTheTopic-onlineRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/data/FlowAI30/TRAFFIC/002D022D725552DDB2TD820D2502B72228B2055B780802BBD78T00085528022D": {
+      "get": {
+        "summary": "Get records as per the category and data type -online",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Getrecordsasperthecategoryanddatatype-online",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subscription/FlowAI20/1527": {
+      "get": {
+        "summary": "Get One Subscription Data",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GetOneSubscriptionData",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subscription/FlowAI20/1528": {
+      "delete": {
+        "summary": "Delete Subscription By ID",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DeleteSubscriptionByID",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20": {
+      "get": {
+        "summary": "Get metadata records",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Getmetadatarecords",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms": {
+      "get": {
+        "summary": "GetAll_TMS_Records",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "GetAll_TMS_Records",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-BY-NUL": {
+      "get": {
+        "summary": "Get_TMS_ByLocode",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Get_TMS_ByLocode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-BY-NUL/objectType": {
+      "get": {
+        "summary": "Get_Objects_ByLocode",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Get_Objects_ByLocode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-BY-NUL/objectType/IntersectionStatus": {
+      "get": {
+        "summary": "Get_SpecificObect_ByLocode",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Get_SpecificObect_ByLocode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-BY-NUL/objectType/IntersectionStatus/id": {
+      "get": {
+        "summary": "Get_SpecificObect_ByLocode_ByIds",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Get_SpecificObect_ByLocode_ByIds",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-BY-NUL/objectType/IntersectionStatus/id/X17": {
+      "get": {
+        "summary": "Get_SpecificObect_ByLocode_ById",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Get_SpecificObect_ByLocode_ById",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SubscribeTheTopic-HistoricalRequest": {
+      "title": "SubscribeTheTopic-HistoricalRequest",
+      "example": {
+        "category": "TRAFFIC",
+        "filters": [
+          {
+            "type": "OBJECT_TYPE",
+            "value": "IntersectionStatus"
+          },
+          {
+            "type": "LOCODE",
+            "value": "DE-BY-NUL"
+          },
+          {
+            "type": "FROM_TIME",
+            "value": "2019-11-13T01:25:47.362Z"
+          },
+          {
+            "type": "TO_TIME",
+            "value": "2020-07-20T01:25:47.362Z"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        }
+      },
+      "required": [
+        "category",
+        "filters"
+      ]
+    },
+    "Filter": {
+      "title": "Filter",
+      "example": {
+        "type": "OBJECT_TYPE",
+        "value": "IntersectionStatus"
+      },
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "SubscribeTheTopic-onlineRequest": {
+      "title": "SubscribeTheTopic-onlineRequest",
+      "example": {
+        "category": "TRAFFIC",
+        "filters": [
+          {
+            "type": "OBJECT_TYPE",
+            "value": "IntersectionStatus"
+          },
+          {
+            "type": "LOCODE",
+            "value": "DE-BY-NUL"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        }
+      },
+      "required": [
+        "category",
+        "filters"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

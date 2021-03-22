@@ -1,0 +1,455 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ZAPTEST_DEV",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://data-api.iot.dev.its-siemens.com/v1/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/subscription/zapdev": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Subscribe The Topic-Historical",
+        "operationId": "SubscribeTheTopic-Historical",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeTheTopic-HistoricalRequest"
+              },
+              "example": {
+                "category": "TRAFFIC",
+                "filters": [
+                  {
+                    "type": "OBJECT_TYPE",
+                    "value": "EnvironmentSensor_Data"
+                  },
+                  {
+                    "type": "LOCODE",
+                    "value": "DE-HB-AAK"
+                  },
+                  {
+                    "type": "FROM_TIME",
+                    "value": "2019-11-13T01:25:47.362Z"
+                  },
+                  {
+                    "type": "TO_TIME",
+                    "value": "2020-09-27T01:25:47.362Z"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get All Subscriptions",
+        "operationId": "GetAllSubscriptions",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/data/zapdev/TRAFFIC/2727B25DD5202022548255045BDT22D047224T25204B5TB020055DD78D07B24D": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type-Historical",
+        "operationId": "Getrecordsasperthecategoryanddatatype-Historical",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/data/zapdev/TRAFFIC/7550DT02D758000T025T54000200D520022520585008TD7DT2207057025000D4": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type -online",
+        "operationId": "Getrecordsasperthecategoryanddatatype-online",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "no-cache"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscription/zapdev/13": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get One Subscription Data",
+        "operationId": "GetOneSubscriptionData",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/subscription/zapdev/18": {
+      "delete": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Delete Subscription By ID",
+        "operationId": "DeleteSubscriptionByID",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get metadata records",
+        "operationId": "Getmetadatarecords",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "GetAll_TMS_Records",
+        "operationId": "GetAll_TMS_Records",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms/DE-HB-AKK": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_TMS_ByLocode",
+        "operationId": "Get_TMS_ByLocode",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms/DE-HB-AAK/objectType": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_Objects_ByLocode",
+        "operationId": "Get_Objects_ByLocode",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms/DE-HB-AAK/objectType/EnvironmentSensor_Data": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode",
+        "operationId": "Get_SpecificObect_ByLocode",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms/DE-HB-AAK/objectType/EnvironmentSensor_Data/id": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ByIds",
+        "operationId": "Get_SpecificObect_ByLocode_ByIds",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/metadata/zapdev/tms/DE-HB-AAK/objectType/EnvironmentSensor_Data/id/X75": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ById",
+        "operationId": "Get_SpecificObect_ByLocode_ById",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubscribeTheTopic-HistoricalRequest": {
+        "title": "SubscribeTheTopic-HistoricalRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "EnvironmentSensor_Data"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-HB-AAK"
+            },
+            {
+              "type": "FROM_TIME",
+              "value": "2019-11-13T01:25:47.362Z"
+            },
+            {
+              "type": "TO_TIME",
+              "value": "2020-09-27T01:25:47.362Z"
+            }
+          ]
+        }
+      },
+      "Filter": {
+        "title": "Filter",
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "OBJECT_TYPE",
+          "value": "EnvironmentSensor_Data"
+        }
+      },
+      "SubscribeTheTopic-onlineRequest": {
+        "title": "SubscribeTheTopic-onlineRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "EnvironmentSensor_Data"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-HB-AAK"
+            }
+          ]
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

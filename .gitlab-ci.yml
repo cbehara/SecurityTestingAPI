@@ -1,0 +1,39 @@
+stages:
+  - feature-Scurtitytesting
+  - cleanup
+
+############# Deploy tdb-coordinator on dev & qa environment #############
+.setup: &setup |
+  pwd
+  docker build -t test_zap:0.0.1 .
+  echo "script run started"
+  pwd && ls -ltr
+  docker run -v $(pwd):/zap/wrk/:rw -t test_zap:0.0.1 zap-api-scan.py -t ZAPTESTQA-OpenApi3Json.json -f openapi -d -r report.html
+  #docker run -v $(pwd):/zap/wrk/:rw -t test_zap:0.0.1 zap-api-scan.py -t zap-kafka-rest-OpenApi3Json.json -f openapi -d -r report.html
+  docker volume ls -qf dangling=true | xargs -r docker volume rm
+  exit 0
+
+#.cleanup: &cleanup |
+#  echo "######################## RUNNER CLEAN-UP ########################"
+#  docker volume ls -qf dangling=true | xargs -r docker volume rm
+#  exit 0
+
+zap-api-scan:
+  stage: feature-Scurtitytesting
+  tags:
+    - ITS-SECURITY-TEST
+  script:
+    - *setup
+  when: manual
+  artifacts:
+    when: always
+    paths:
+      - report.html
+
+#cleanup:
+#  stage: cleanup
+#  script:
+#    - *cleanup
+##  when: manual
+#  tags:
+#    - ITS-SECURITY-TEST

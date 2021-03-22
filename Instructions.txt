@@ -1,0 +1,18 @@
+docker build -t test_zap:0.0.1 .
+
+docker run -t test_zap:0.0.1 zap-api-scan.py -t ZAPTEST-OpenApi3Json.json -f openapi -d
+
+
+Try other options
+ 1. -r option for html report
+ 2. compare result - command vs ui
+ 
+ run commond -->
+ sudo docker run -v /home/ubuntu/zap_test:/zap/wrk/:rw -t test_zap:0.0.1 zap-api-scan.py -t ZAPTEST-OpenApi3Json.json -f openapi -d -r report.html
+ 
+ download report->from ec2
+ 
+ scp -r -i PerformanceTest.pem ubuntu@ec2-34-245-211-69.eu-west-1.compute.amazonaws.com:home/ubuntu/zap_test/report.html /d/JMETER/performance-test/Historical
+ 
+ push zap test file from local to ec2
+ $ scp -r -i PerformanceTest.pem /d/zap_test_new/zap_test ubuntu@ec2-34-245-211-69.eu-west-1.compute.amazonaws.com:/home/ubuntu/

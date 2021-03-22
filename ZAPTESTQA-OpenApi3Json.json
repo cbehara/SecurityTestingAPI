@@ -1,0 +1,822 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ZAPTEST",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://data-api.testing.its-siemens.com/v1/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/subscription/zaptest": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Subscribe The Topic-Historical",
+        "operationId": "SubscribeTheTopic-Historical",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeTheTopic-HistoricalRequest"
+              },
+              "example": {
+                "category": "TRAFFIC",
+                "filters": [
+                  {
+                    "type": "OBJECT_TYPE",
+                    "value": "EnvironmentSensor_Data"
+                  },
+                  {
+                    "type": "LOCODE",
+                    "value": "DE-NI-WOB"
+                  },
+                  {
+                    "type": "FROM_TIME",
+                    "value": "2019-12-13T01:25:47.362Z"
+                  },
+                  {
+                    "type": "TO_TIME",
+                    "value": "2020-10-23T01:20:47.362Z"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/data/zaptest/TRAFFIC/8B702BB008T80055002552022527802D024B54BD2420020524502B5052224072": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type-Historical",
+        "operationId": "Getrecordsasperthecategoryanddatatype-Historical",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/data/{consumerId}/{category}/{key}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type-Historical -size",
+        "operationId": "Getrecordsasperthecategoryanddatatype-Historical-size",
+        "parameters": [
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3000000
+            }
+          },
+          {
+            "name": "consumerId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "zaptest"
+            }
+          },
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "TRAFFIC"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "285770220D204502002702T07052205280020008287TB0724B2472500D725204"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/subscription/FlowAI30": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Subscribe The Topic -online",
+        "operationId": "SubscribeTheTopic-online",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "no-cache"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeTheTopic-onlineRequest"
+              },
+              "example": {
+                "category": "TRAFFIC",
+                "filters": [
+                  {
+                    "type": "OBJECT_TYPE",
+                    "value": "EnvironmentSensor_Data"
+                  },
+                  {
+                    "type": "LOCODE",
+                    "value": "DE-NI-WOB"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get All Subscriptions",
+        "operationId": "GetAllSubscriptions",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/data/FlowAI30/TRAFFIC/205455507T700227282888B20025202T02525T527D85280050280252020B0227": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get records as per the category and data type -online",
+        "operationId": "Getrecordsasperthecategoryanddatatype-online",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          },
+          {
+            "name": "Cache-Control",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "no-cache"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/subscription/FlowAI30/16": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get One Subscription Data",
+        "operationId": "GetOneSubscriptionData",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/subscription/FlowAI30/1528": {
+      "delete": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Delete Subscription By ID",
+        "operationId": "DeleteSubscriptionByID",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "*/*"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "GetAll_TMS_Records",
+        "operationId": "GetAll_TMS_Records",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-NI-WOB": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_TMS_ByLocode",
+        "operationId": "Get_TMS_ByLocode",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms/00-HQ-TCC/objectType": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_Objects_ByLocode",
+        "operationId": "Get_Objects_ByLocode",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-NI-WOB/objectType/EnvironmentSensor_Data": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode",
+        "operationId": "Get_SpecificObect_ByLocode",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-NI-WOB/objectType/EnvironmentSensor_Data/id": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ByIds",
+        "operationId": "Get_SpecificObect_ByLocode_ByIds",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/metadata/FlowAI20/tms/DE-NI-WOB/objectType/EnvironmentSensor_Data/id/string_0": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get_SpecificObect_ByLocode_ById",
+        "operationId": "Get_SpecificObect_ByLocode_ById",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZS1FjNkVxbFFjMlBrWGQ4dFJfYkNibFg5TEU0b25IdmE0X3MtTVNjRjRFIn0.eyJqdGkiOiJmOTliMzc1OS0wOThjLTRiNzYtOTBmZC1jY2VmZjliYzkwMGUiLCJleHAiOjE2MDM3MjIyMTcsIm5iZiI6MCwiaWF0IjoxNjAzNjg2MjE3LCJpc3MiOiJodHRwczovL2lhbS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOWIzZDk2NTctN2UxNS00MDViLWJhMmMtNDlhNjJiMTU2ZDVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY3VybCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6Ijk0YjFkYTU4LTk4NDktNGYyYy05OGRkLTNiMmQ3ZjRiMGIwMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXRhLWFwaS50ZXN0aW5nLml0cy1zaWVtZW5zLmNvbS8qIiwiaHR0cHM6Ly9rYWZrYS1yZXN0LnRlc3RpbmcuaXRzLXNpZW1lbnMuY29tL3RvcGljcy8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGF0YS1hcGktYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29iaiI6IioiLCJhdHRyX2xvY29kZSI6IioiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRkYi11c2VyIn0.JZAhyA8FTS7j9ubT8B4NNd4UlbBmJrTQ9xfK7i9Iv6iIVkoP1V1Ze2f4UYGpcyKGeSMn38q3OSZYbJIrtNNZeWBHh6ep54iqrf-ahIV3r3mwhknjf-yjsGAqn0qaBPDKqyO1Y7PwzZiWxAVvm9ZjZOMQN38KfSmCpHD-QKs_Q_whSNV9ZyC2gqmLUKuTpmGNlE5ENBqQZwun9CnPnsR8h6POj0xKx2J8bPV6xG3woeLsuSAUq9Nw9QOFjzYBGlSwJUNpg9hglWe3Qfeqn7RIqDD-X6aWvq94YA-rdz8AghFJ6q13ArUV9qACV3QFTGqknTD9KsuPTHHD3YCdO05GEw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubscribeTheTopic-HistoricalRequest": {
+        "title": "SubscribeTheTopic-HistoricalRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "EnvironmentSensor_Data"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-NI-WOB"
+            },
+            {
+              "type": "FROM_TIME",
+              "value": "2019-12-13T01:25:47.362Z"
+            },
+            {
+              "type": "TO_TIME",
+              "value": "2020-10-23T01:20:47.362Z"
+            }
+          ]
+        }
+      },
+      "Filter": {
+        "title": "Filter",
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "OBJECT_TYPE",
+          "value": "EnvironmentSensor_Data"
+        }
+      },
+      "SubscribeTheTopic-Historical-idRequest": {
+        "title": "SubscribeTheTopic-Historical-idRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter1"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "EnvironmentSensor_Data",
+              "subFilters": [
+                {
+                  "type": "ID",
+                  "value": "weather1_0_1"
+                }
+              ]
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-NI-WOB"
+            },
+            {
+              "type": "FROM_TIME",
+              "value": "2020-09-15T01:25:47.362Z"
+            },
+            {
+              "type": "TO_TIME",
+              "value": "2020-10-23T01:20:47.362Z"
+            }
+          ]
+        }
+      },
+      "Filter1": {
+        "title": "Filter1",
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "subFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubFilter"
+            }
+          }
+        },
+        "example": {
+          "type": "OBJECT_TYPE",
+          "value": "EnvironmentSensor_Data",
+          "subFilters": [
+            {
+              "type": "ID",
+              "value": "weather1_0_1"
+            }
+          ]
+        }
+      },
+      "SubFilter": {
+        "title": "SubFilter",
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "ID",
+          "value": "weather1_0_1"
+        }
+      },
+      "SubscribeTheTopic-onlineRequest": {
+        "title": "SubscribeTheTopic-onlineRequest",
+        "required": [
+          "category",
+          "filters"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            }
+          }
+        },
+        "example": {
+          "category": "TRAFFIC",
+          "filters": [
+            {
+              "type": "OBJECT_TYPE",
+              "value": "EnvironmentSensor_Data"
+            },
+            {
+              "type": "LOCODE",
+              "value": "DE-NI-WOB"
+            }
+          ]
+        }
+      }
+    }
+
+  },
+  "security": [
+    {
+      "oauth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

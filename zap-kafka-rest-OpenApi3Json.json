@@ -1,0 +1,1517 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "zap-kafka-rest",
+    "description": "rest api for kafka",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://stream.data.iot.dev.its-siemens.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/topics": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "get topics list",
+        "operationId": "gettopicslist",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiIyODIyNTIwNS0yMWRjLTQzMzktOTEyZi05OGVjYzhjN2Q1ZWIiLCJleHAiOjE2MDEwNTE5ODUsIm5iZiI6MCwiaWF0IjoxNjAxMDE1OTg1LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJhZTJjY2JiOC1hYWFkLTQ1MzktYTRiNy03NTBlYWQyYjcxMGUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.Y4rAkGhZ42alkLblBaASE56WPr2zE4GK6n8ChJI9sjyit_3z37B6J16-1VOqI8TQoV2VxvR5w2nSHHIRhjHVOwbnUkcXeCvejaYTNefkIhNVU1FDH8bVD2LbUlJ72rOGlITGs4Y7qSFRh8o8J9sA1LeufgCgNMlrfplB-jqg2kgUZW38pZIie9mATEXZUEuCe99yJTrUchReZnIytY__GSBIX005BjNX6MvRgRnx0Z0voRqdO0hcg5I1JYb4b6fUsAFCpdyAATH71cCKM7HZ21vVdoxwEiJEomWFsWFt6MWTDz7u8_4sZbUSW16Isst6cS0DnvsqRnJHYUazDvz5Sw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/topics/{topic_name}": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Get info about one topic",
+        "operationId": "Getinfoaboutonetopic",
+        "parameters": [
+          {
+            "name": "topic_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Intersection.IntersectionStatus.00-HQ-TCC"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      },
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "send  message to topic",
+        "operationId": "sendmessagetotopic",
+        "parameters": [
+          {
+            "name": "topic_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "TestFamily.TestObject.00-HQ-TCC"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/vnd.kafka.json.v2+json"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.kafka.json.v2+json": {
+              "schema": {
+                "$ref": "#/components/schemas/sendmessagetotopicrequest"
+              },
+              "example": {
+                "records": [
+                  {
+                    "value": {
+                      "access": {
+                        "document_scope": "confidential",
+                        "object_hierarchies": {
+                          "hierarchy": {
+                            "parent": "default",
+                            "permission_type": "use_parental"
+                          }
+                        },
+                        "ingress_contract": "IC001",
+                        "source": [
+                          "IntersectionStatus",
+                          "DE-BY-NUL"
+                        ],
+                        "egress_contract": "EC001"
+                      },
+                      "usage": {},
+                      "coredata": {
+                        "controlMode": {
+                          "value": "central"
+                        },
+                        "signalProgram": {
+                          "value": "0"
+                        },
+                        "controllerId": "DE-BY-NUL-X3",
+                        "publishing_timestamp": "2020-07-10T00:00:00.997Z",
+                        "taOnOff": {
+                          "value": "on"
+                        },
+                        "intersectionOnOff": {
+                          "value": "offDefault"
+                        },
+                        "subIntersectionOnOff": [],
+                        "projectSpecificModification": [],
+                        "itOnOff": {
+                          "value": "none"
+                        },
+                        "faultStatus": [
+                          {
+                            "textNr": 2,
+                            "params": []
+                          }
+                        ],
+                        "priority": "unknown",
+                        "objectType": "IntersectionStatus",
+                        "ptOnOff": {
+                          "value": "none"
+                        },
+                        "id": "X3",
+                        "deviceState": 9,
+                        "timestamp": "2020-07-10T00:00:00.997Z"
+                      },
+                      "context": {
+                        "relIds": [],
+                        "marker": {
+                          "signalProgram": {
+                            "value": "0"
+                          }
+                        },
+                        "location": {
+                          "locationCountry": "DE",
+                          "locationDivision": "BY",
+                          "locationLatLong": [
+                            {
+                              "lat": 48.384565,
+                              "long": 10.004364
+                            }
+                          ],
+                          "locationGeoHash": [
+                            {
+                              "value": "u0x578huw8dk"
+                            }
+                          ],
+                          "locationCity": "NUL",
+                          "locationPoint": [
+                            {
+                              "areaSelector": "inside",
+                              "projectionType": "zone=32,band=U",
+                              "projectionCategory": "UTM WGS84",
+                              "co": [
+                                {
+                                  "x": 574362.05868280551,
+                                  "y": 5359531.7292227
+                                }
+                              ],
+                              "radius": 20.0
+                            }
+                          ]
+                        },
+                        "dataSource": "tdb",
+                        "objectId": "X3",
+                        "objectType": "IntersectionStatus",
+                        "timestamp": "2020-07-10T00:00:00.997Z"
+                      },
+                      "ontology": {}
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/consumers/{consumer_grp_name}": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Create a consumer instance",
+        "description": "  Create a consumer for JSON data, starting at the beginning of the topic's log. The consumer group is called \"my_json_consumer\" and the instance is \"my_consumer_instance\".",
+        "operationId": "Createaconsumerinstance",
+        "parameters": [
+          {
+            "name": "consumer_grp_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.kafka.v2+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateaconsumerinstanceRequest"
+              },
+              "example": {
+                "name": "my_consumer_instance_test",
+                "format": "json",
+                "auto.offset.reset": "earliest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/consumers/{consumer_grp_name}/instances/{consumer_instance_name}/subscription": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Subscribe the consumer to a topic",
+        "description": "Subscribe the consumer to a topic.No content in response",
+        "operationId": "Subscribetheconsumertoatopic",
+        "parameters": [
+          {
+            "name": "consumer_grp_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer"
+            }
+          },
+          {
+            "name": "consumer_instance_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer_instance_test"
+            }
+          },
+          {
+            "name": "Request-Body",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.kafka.v2+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribetheconsumertoatopicRequest"
+              },
+              "example": {
+                "topics": [
+                  "TestFamily.TestObject.00-HQ-TCC"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/consumers/{consumer_grp_name}/instances/{consumer_instance_name}/records": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "consume  data from a topic",
+        "description": "consume some data from a topic using the base URL in the first response.\r\n",
+        "operationId": "consumedatafromatopic",
+        "parameters": [
+          {
+            "name": "timeout",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3000
+            }
+          },
+          {
+            "name": "max_bytes",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 300000
+            }
+          },
+          {
+            "name": "consumer_grp_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer"
+            }
+          },
+          {
+            "name": "consumer_instance_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer_instance_test"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/vnd.kafka.json.v2+json"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/consumers/{consumer_grp_name}/instances/{consumer_instance_name}": {
+      "delete": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "close the consumer",
+        "description": "Finally, close the consumer with a DELETE to make it leave the group and clean up its resources.No content in response",
+        "operationId": "closetheconsumer",
+        "parameters": [
+          {
+            "name": "consumer_grp_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer"
+            }
+          },
+          {
+            "name": "consumer_instance_name",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "my_consumer_instance_test"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "application/vnd.kafka.v2+json"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVzJSdGhha1UwVXRfMkh2OHg5LWp5QmFQZWhHOGF6NjFMOEdQbHBKQUxRIn0.eyJqdGkiOiJiMmQxNDM1My0wNDY1LTQyN2QtOTBmOC1jNDZlYjI0NzgwODIiLCJleHAiOjE2MDEwNTIyMDgsIm5iZiI6MCwiaWF0IjoxNjAxMDE2MjA4LCJpc3MiOiJodHRwczovL2lhbS1zeW5hcHNlcy5pb3QuZGV2Lml0cy1zaWVtZW5zLmNvbS9hdXRoL3JlYWxtcy9pdHMiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjI3YzA5MzMtZTI0My00ODkzLWI2NzItOTMzZTZmM2NkMGFlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoia2Fma2EtcmVzdC1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiIwMzJlMzg2NS1iYzk5LTQ0ZDAtOGE0OS0xZGYwMjE5ZmRjMDMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImthZmthLXJlc3QtcmVhZC93cml0ZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJhdHRyX29ial9mYW1pbHkiOiJJbnRlcnNlY3Rpb24sVGVzdEZhbWlseSIsImF0dHJfbG9jb2RlIjoiMDAtSFEtVENDLERFLUhCLUFBSyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXR0cl9vYmpfdHlwZSI6IkludGVyc2VjdGlvblN0YXR1cyxUZXN0T2JqZWN0Iiwicm9sZXMiOlsia2Fma2EtcmVzdC1yZWFkL3dyaXRlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJrYWZrYS1yZXN0LXJlYWQtd3JpdGUtdXNlciJ9.HBsv5JB1mc0EKvBFJDlGYyJGoXfwrovh4kMTgd1VQly0dEHrBbjioGsusFRBF9sgurDKXh1_OnTU_I4DqGqbLtN-lm55SopHYXWtaRWKUT9M5WV-3nT4CNbEkVtT4-D3-SthUz0QVZ_54b_UQxf_Zqs8OzSIUeJlLKReHr3JBf2aaBMY6vR1oSm8suQCih24H6m7Zogr3GechsG5H7APcFWYAwfPw8_X6G_AXREqgSryEdlIm_2uvG2G8bRm7DwLrkCsfWIeu3g3NQEpc3skkaUhemS6ci2NWO4qHr7Cn0-PsCfSSSjSoU5Sc6jxSvuNrtr8_hEawHkCkdNiP7Pumg"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "sendmessagetotopicrequest": {
+        "title": "sendmessagetotopicrequest",
+        "required": [
+          "records"
+        ],
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            }
+          }
+        },
+        "example": {
+          "records": [
+            {
+              "value": {
+                "access": {
+                  "document_scope": "confidential",
+                  "object_hierarchies": {
+                    "hierarchy": {
+                      "parent": "default",
+                      "permission_type": "use_parental"
+                    }
+                  },
+                  "ingress_contract": "IC001",
+                  "source": [
+                    "IntersectionStatus",
+                    "DE-BY-NUL"
+                  ],
+                  "egress_contract": "EC001"
+                },
+                "usage": {},
+                "coredata": {
+                  "controlMode": {
+                    "value": "central"
+                  },
+                  "signalProgram": {
+                    "value": "0"
+                  },
+                  "controllerId": "DE-BY-NUL-X3",
+                  "publishing_timestamp": "2020-07-10T00:00:00.997Z",
+                  "taOnOff": {
+                    "value": "on"
+                  },
+                  "intersectionOnOff": {
+                    "value": "offDefault"
+                  },
+                  "subIntersectionOnOff": [],
+                  "projectSpecificModification": [],
+                  "itOnOff": {
+                    "value": "none"
+                  },
+                  "faultStatus": [
+                    {
+                      "textNr": 2,
+                      "params": []
+                    }
+                  ],
+                  "priority": "unknown",
+                  "objectType": "IntersectionStatus",
+                  "ptOnOff": {
+                    "value": "none"
+                  },
+                  "id": "X3",
+                  "deviceState": 9,
+                  "timestamp": "2020-07-10T00:00:00.997Z"
+                },
+                "context": {
+                  "relIds": [],
+                  "marker": {
+                    "signalProgram": {
+                      "value": "0"
+                    }
+                  },
+                  "location": {
+                    "locationCountry": "DE",
+                    "locationDivision": "BY",
+                    "locationLatLong": [
+                      {
+                        "lat": 48.384565,
+                        "long": 10.004364
+                      }
+                    ],
+                    "locationGeoHash": [
+                      {
+                        "value": "u0x578huw8dk"
+                      }
+                    ],
+                    "locationCity": "NUL",
+                    "locationPoint": [
+                      {
+                        "areaSelector": "inside",
+                        "projectionType": "zone=32,band=U",
+                        "projectionCategory": "UTM WGS84",
+                        "co": [
+                          {
+                            "x": 574362.05868280551,
+                            "y": 5359531.7292227
+                          }
+                        ],
+                        "radius": 20.0
+                      }
+                    ]
+                  },
+                  "dataSource": "tdb",
+                  "objectId": "X3",
+                  "objectType": "IntersectionStatus",
+                  "timestamp": "2020-07-10T00:00:00.997Z"
+                },
+                "ontology": {}
+              }
+            }
+          ]
+        }
+      },
+      "Record": {
+        "title": "Record",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "example": {
+          "value": {
+            "access": {
+              "document_scope": "confidential",
+              "object_hierarchies": {
+                "hierarchy": {
+                  "parent": "default",
+                  "permission_type": "use_parental"
+                }
+              },
+              "ingress_contract": "IC001",
+              "source": [
+                "IntersectionStatus",
+                "DE-BY-NUL"
+              ],
+              "egress_contract": "EC001"
+            },
+            "usage": {},
+            "coredata": {
+              "controlMode": {
+                "value": "central"
+              },
+              "signalProgram": {
+                "value": "0"
+              },
+              "controllerId": "DE-BY-NUL-X3",
+              "publishing_timestamp": "2020-07-10T00:00:00.997Z",
+              "taOnOff": {
+                "value": "on"
+              },
+              "intersectionOnOff": {
+                "value": "offDefault"
+              },
+              "subIntersectionOnOff": [],
+              "projectSpecificModification": [],
+              "itOnOff": {
+                "value": "none"
+              },
+              "faultStatus": [
+                {
+                  "textNr": 2,
+                  "params": []
+                }
+              ],
+              "priority": "unknown",
+              "objectType": "IntersectionStatus",
+              "ptOnOff": {
+                "value": "none"
+              },
+              "id": "X3",
+              "deviceState": 9,
+              "timestamp": "2020-07-10T00:00:00.997Z"
+            },
+            "context": {
+              "relIds": [],
+              "marker": {
+                "signalProgram": {
+                  "value": "0"
+                }
+              },
+              "location": {
+                "locationCountry": "DE",
+                "locationDivision": "BY",
+                "locationLatLong": [
+                  {
+                    "lat": 48.384565,
+                    "long": 10.004364
+                  }
+                ],
+                "locationGeoHash": [
+                  {
+                    "value": "u0x578huw8dk"
+                  }
+                ],
+                "locationCity": "NUL",
+                "locationPoint": [
+                  {
+                    "areaSelector": "inside",
+                    "projectionType": "zone=32,band=U",
+                    "projectionCategory": "UTM WGS84",
+                    "co": [
+                      {
+                        "x": 574362.05868280551,
+                        "y": 5359531.7292227
+                      }
+                    ],
+                    "radius": 20.0
+                  }
+                ]
+              },
+              "dataSource": "tdb",
+              "objectId": "X3",
+              "objectType": "IntersectionStatus",
+              "timestamp": "2020-07-10T00:00:00.997Z"
+            },
+            "ontology": {}
+          }
+        }
+      },
+      "Value": {
+        "title": "Value",
+        "required": [
+          "access",
+          "usage",
+          "coredata",
+          "context",
+          "ontology"
+        ],
+        "type": "object",
+        "properties": {
+          "access": {
+            "$ref": "#/components/schemas/Access"
+          },
+          "usage": {
+            "type": "object"
+          },
+          "coredata": {
+            "$ref": "#/components/schemas/Coredata"
+          },
+          "context": {
+            "$ref": "#/components/schemas/Context"
+          },
+          "ontology": {
+            "type": "object"
+          }
+        },
+        "example": {
+          "access": {
+            "document_scope": "confidential",
+            "object_hierarchies": {
+              "hierarchy": {
+                "parent": "default",
+                "permission_type": "use_parental"
+              }
+            },
+            "ingress_contract": "IC001",
+            "source": [
+              "IntersectionStatus",
+              "DE-BY-NUL"
+            ],
+            "egress_contract": "EC001"
+          },
+          "usage": {},
+          "coredata": {
+            "controlMode": {
+              "value": "central"
+            },
+            "signalProgram": {
+              "value": "0"
+            },
+            "controllerId": "DE-BY-NUL-X3",
+            "publishing_timestamp": "2020-07-10T00:00:00.997Z",
+            "taOnOff": {
+              "value": "on"
+            },
+            "intersectionOnOff": {
+              "value": "offDefault"
+            },
+            "subIntersectionOnOff": [],
+            "projectSpecificModification": [],
+            "itOnOff": {
+              "value": "none"
+            },
+            "faultStatus": [
+              {
+                "textNr": 2,
+                "params": []
+              }
+            ],
+            "priority": "unknown",
+            "objectType": "IntersectionStatus",
+            "ptOnOff": {
+              "value": "none"
+            },
+            "id": "X3",
+            "deviceState": 9,
+            "timestamp": "2020-07-10T00:00:00.997Z"
+          },
+          "context": {
+            "relIds": [],
+            "marker": {
+              "signalProgram": {
+                "value": "0"
+              }
+            },
+            "location": {
+              "locationCountry": "DE",
+              "locationDivision": "BY",
+              "locationLatLong": [
+                {
+                  "lat": 48.384565,
+                  "long": 10.004364
+                }
+              ],
+              "locationGeoHash": [
+                {
+                  "value": "u0x578huw8dk"
+                }
+              ],
+              "locationCity": "NUL",
+              "locationPoint": [
+                {
+                  "areaSelector": "inside",
+                  "projectionType": "zone=32,band=U",
+                  "projectionCategory": "UTM WGS84",
+                  "co": [
+                    {
+                      "x": 574362.05868280551,
+                      "y": 5359531.7292227
+                    }
+                  ],
+                  "radius": 20.0
+                }
+              ]
+            },
+            "dataSource": "tdb",
+            "objectId": "X3",
+            "objectType": "IntersectionStatus",
+            "timestamp": "2020-07-10T00:00:00.997Z"
+          },
+          "ontology": {}
+        }
+      },
+      "Access": {
+        "title": "Access",
+        "required": [
+          "document_scope",
+          "object_hierarchies",
+          "ingress_contract",
+          "source",
+          "egress_contract"
+        ],
+        "type": "object",
+        "properties": {
+          "document_scope": {
+            "type": "string"
+          },
+          "object_hierarchies": {
+            "$ref": "#/components/schemas/ObjectHierarchies"
+          },
+          "ingress_contract": {
+            "type": "string"
+          },
+          "source": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "egress_contract": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "document_scope": "confidential",
+          "object_hierarchies": {
+            "hierarchy": {
+              "parent": "default",
+              "permission_type": "use_parental"
+            }
+          },
+          "ingress_contract": "IC001",
+          "source": [
+            "IntersectionStatus",
+            "DE-BY-NUL"
+          ],
+          "egress_contract": "EC001"
+        }
+      },
+      "ObjectHierarchies": {
+        "title": "ObjectHierarchies",
+        "required": [
+          "hierarchy"
+        ],
+        "type": "object",
+        "properties": {
+          "hierarchy": {
+            "$ref": "#/components/schemas/Hierarchy"
+          }
+        },
+        "example": {
+          "hierarchy": {
+            "parent": "default",
+            "permission_type": "use_parental"
+          }
+        }
+      },
+      "Hierarchy": {
+        "title": "Hierarchy",
+        "required": [
+          "parent",
+          "permission_type"
+        ],
+        "type": "object",
+        "properties": {
+          "parent": {
+            "type": "string"
+          },
+          "permission_type": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "parent": "default",
+          "permission_type": "use_parental"
+        }
+      },
+      "Coredata": {
+        "title": "Coredata",
+        "required": [
+          "controlMode",
+          "signalProgram",
+          "controllerId",
+          "publishing_timestamp",
+          "taOnOff",
+          "intersectionOnOff",
+          "subIntersectionOnOff",
+          "projectSpecificModification",
+          "itOnOff",
+          "faultStatus",
+          "priority",
+          "objectType",
+          "ptOnOff",
+          "id",
+          "deviceState",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "controlMode": {
+            "$ref": "#/components/schemas/ControlMode"
+          },
+          "signalProgram": {
+            "$ref": "#/components/schemas/SignalProgram"
+          },
+          "controllerId": {
+            "type": "string"
+          },
+          "publishing_timestamp": {
+            "type": "string"
+          },
+          "taOnOff": {
+            "$ref": "#/components/schemas/TaOnOff"
+          },
+          "intersectionOnOff": {
+            "$ref": "#/components/schemas/IntersectionOnOff"
+          },
+          "subIntersectionOnOff": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "projectSpecificModification": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "itOnOff": {
+            "$ref": "#/components/schemas/ItOnOff"
+          },
+          "faultStatus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FaultStatus"
+            }
+          },
+          "priority": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "ptOnOff": {
+            "$ref": "#/components/schemas/PtOnOff"
+          },
+          "id": {
+            "type": "string"
+          },
+          "deviceState": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "controlMode": {
+            "value": "central"
+          },
+          "signalProgram": {
+            "value": "0"
+          },
+          "controllerId": "DE-BY-NUL-X3",
+          "publishing_timestamp": "2020-07-10T00:00:00.997Z",
+          "taOnOff": {
+            "value": "on"
+          },
+          "intersectionOnOff": {
+            "value": "offDefault"
+          },
+          "subIntersectionOnOff": [],
+          "projectSpecificModification": [],
+          "itOnOff": {
+            "value": "none"
+          },
+          "faultStatus": [
+            {
+              "textNr": 2,
+              "params": []
+            }
+          ],
+          "priority": "unknown",
+          "objectType": "IntersectionStatus",
+          "ptOnOff": {
+            "value": "none"
+          },
+          "id": "X3",
+          "deviceState": 9,
+          "timestamp": "2020-07-10T00:00:00.997Z"
+        }
+      },
+      "ControlMode": {
+        "title": "ControlMode",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "central"
+        }
+      },
+      "SignalProgram": {
+        "title": "SignalProgram",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "0"
+        }
+      },
+      "TaOnOff": {
+        "title": "TaOnOff",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "on"
+        }
+      },
+      "IntersectionOnOff": {
+        "title": "IntersectionOnOff",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "offDefault"
+        }
+      },
+      "ItOnOff": {
+        "title": "ItOnOff",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "none"
+        }
+      },
+      "FaultStatus": {
+        "title": "FaultStatus",
+        "required": [
+          "textNr",
+          "params"
+        ],
+        "type": "object",
+        "properties": {
+          "textNr": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "params": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "textNr": 2,
+          "params": []
+        }
+      },
+      "PtOnOff": {
+        "title": "PtOnOff",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "none"
+        }
+      },
+      "Context": {
+        "title": "Context",
+        "required": [
+          "relIds",
+          "marker",
+          "location",
+          "dataSource",
+          "objectId",
+          "objectType",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "relIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "marker": {
+            "$ref": "#/components/schemas/Marker"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "dataSource": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "objectType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "relIds": [],
+          "marker": {
+            "signalProgram": {
+              "value": "0"
+            }
+          },
+          "location": {
+            "locationCountry": "DE",
+            "locationDivision": "BY",
+            "locationLatLong": [
+              {
+                "lat": 48.384565,
+                "long": 10.004364
+              }
+            ],
+            "locationGeoHash": [
+              {
+                "value": "u0x578huw8dk"
+              }
+            ],
+            "locationCity": "NUL",
+            "locationPoint": [
+              {
+                "areaSelector": "inside",
+                "projectionType": "zone=32,band=U",
+                "projectionCategory": "UTM WGS84",
+                "co": [
+                  {
+                    "x": 574362.05868280551,
+                    "y": 5359531.7292227
+                  }
+                ],
+                "radius": 20.0
+              }
+            ]
+          },
+          "dataSource": "tdb",
+          "objectId": "X3",
+          "objectType": "IntersectionStatus",
+          "timestamp": "2020-07-10T00:00:00.997Z"
+        }
+      },
+      "Marker": {
+        "title": "Marker",
+        "required": [
+          "signalProgram"
+        ],
+        "type": "object",
+        "properties": {
+          "signalProgram": {
+            "$ref": "#/components/schemas/SignalProgram"
+          }
+        },
+        "example": {
+          "signalProgram": {
+            "value": "0"
+          }
+        }
+      },
+      "Location": {
+        "title": "Location",
+        "required": [
+          "locationCountry",
+          "locationDivision",
+          "locationLatLong",
+          "locationGeoHash",
+          "locationCity",
+          "locationPoint"
+        ],
+        "type": "object",
+        "properties": {
+          "locationCountry": {
+            "type": "string"
+          },
+          "locationDivision": {
+            "type": "string"
+          },
+          "locationLatLong": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationLatLong"
+            }
+          },
+          "locationGeoHash": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationGeoHash"
+            }
+          },
+          "locationCity": {
+            "type": "string"
+          },
+          "locationPoint": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationPoint"
+            }
+          }
+        },
+        "example": {
+          "locationCountry": "DE",
+          "locationDivision": "BY",
+          "locationLatLong": [
+            {
+              "lat": 48.384565,
+              "long": 10.004364
+            }
+          ],
+          "locationGeoHash": [
+            {
+              "value": "u0x578huw8dk"
+            }
+          ],
+          "locationCity": "NUL",
+          "locationPoint": [
+            {
+              "areaSelector": "inside",
+              "projectionType": "zone=32,band=U",
+              "projectionCategory": "UTM WGS84",
+              "co": [
+                {
+                  "x": 574362.05868280551,
+                  "y": 5359531.7292227
+                }
+              ],
+              "radius": 20.0
+            }
+          ]
+        }
+      },
+      "LocationLatLong": {
+        "title": "LocationLatLong",
+        "required": [
+          "lat",
+          "long"
+        ],
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "long": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "lat": 48.384565,
+          "long": 10.004364
+        }
+      },
+      "LocationGeoHash": {
+        "title": "LocationGeoHash",
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "u0x578huw8dk"
+        }
+      },
+      "LocationPoint": {
+        "title": "LocationPoint",
+        "required": [
+          "areaSelector",
+          "projectionType",
+          "projectionCategory",
+          "co",
+          "radius"
+        ],
+        "type": "object",
+        "properties": {
+          "areaSelector": {
+            "type": "string"
+          },
+          "projectionType": {
+            "type": "string"
+          },
+          "projectionCategory": {
+            "type": "string"
+          },
+          "co": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Co"
+            }
+          },
+          "radius": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "areaSelector": "inside",
+          "projectionType": "zone=32,band=U",
+          "projectionCategory": "UTM WGS84",
+          "co": [
+            {
+              "x": 574362.05868280551,
+              "y": 5359531.7292227
+            }
+          ],
+          "radius": 20.0
+        }
+      },
+      "Co": {
+        "title": "Co",
+        "required": [
+          "x",
+          "y"
+        ],
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "x": 574362.05868280551,
+          "y": 5359531.7292227
+        }
+      },
+      "CreateaconsumerinstanceRequest": {
+        "title": "CreateaconsumerinstanceRequest",
+        "required": [
+          "name",
+          "format",
+          "auto.offset.reset"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          },
+          "auto.offset.reset": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "my_consumer_instance_test",
+          "format": "json",
+          "auto.offset.reset": "earliest"
+        }
+      },
+      "SubscribetheconsumertoatopicRequest": {
+        "title": "SubscribetheconsumertoatopicRequest",
+        "required": [
+          "topics"
+        ],
+        "type": "object",
+        "properties": {
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "topics": [
+            "TestFamily.TestObject.00-HQ-TCC"
+          ]
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}
